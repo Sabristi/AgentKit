@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Secrets — NEVER commit this
+.env
+
+# Vite build output
+dist/
+dist-ssr/
+
+# Local dev
+*.local
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
