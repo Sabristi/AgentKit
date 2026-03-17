@@ -36,6 +36,9 @@ AgentKit is a local UI for **Test-Driven Agent Development (TDAD)** on Salesforc
 
 Instead of juggling CLI commands, YAML files, and terminal windows, AgentKit gives you:
 
+<img width="1910" height="124" alt="image" src="https://github.com/user-attachments/assets/e4072b5b-91fe-490d-b743-298c6b9a68dc" />
+
+
 - 📋 **Stage 01 — Generate `agentSpec.yaml`** via AI or CLI, edit inline, save to project
 - ✍️ **Stage 02 — Author your `.agent` script** via CLI command or Agent Skill prompt for Claude Code
 - ✅ **Stage 03 — Validate** your agent with `sf agent validate`
@@ -252,6 +255,9 @@ The header confirms the connection: `● <project_name> · Project connected · 
 
 Generate or edit the `agentSpec.yaml` that defines your agent's role, tone, and topics.
 
+<img width="1910" height="917" alt="image" src="https://github.com/user-attachments/assets/204d667f-c5b2-44b1-9aff-a0c73b25ae49" />
+
+
 **Via AI** — fill in the form (agent type, company, role, tone, max topics) and let Claude generate the YAML. Refine iteratively with natural language instructions.
 
 **Via CLI Command** — generates the full `sf agent generate agent-spec` command with all flags pre-filled. Run it directly from the UI with live output.
@@ -275,6 +281,9 @@ sf agent generate agent-spec \
 
 Create the `.agent` script from your spec.
 
+<img width="1910" height="917" alt="image" src="https://github.com/user-attachments/assets/ac335368-7bfd-48a6-8244-45b69d730aa6" />
+
+
 **Via CLI Command** — generates `sf agent generate authoring-bundle` with bundle name, API name, and target org pre-filled.
 
 **Via Agent Skill** — generates a ready-to-paste prompt for Claude Code (or any AI coding agent with MCP skill support) using the `sf-ai-agentscript` skill. The AI agent authors the full `.agent` file autonomously.
@@ -294,6 +303,9 @@ sf agent generate authoring-bundle \
 
 Validate your `.agent` file before deploying.
 
+<img width="1910" height="917" alt="image" src="https://github.com/user-attachments/assets/84e995d6-68f4-4c07-81c2-e008076dbe90" />
+
+
 Select your `.agent` file, enter the Agent API name (auto-detected), and run:
 
 ```bash
@@ -305,6 +317,10 @@ sf agent validate --agent-api-name SkyBlueAirlinesServiceAgent --target-org my-d
 ### Stage 03.5 — Local Test
 
 Smoke test your agent locally **without deploying** using `sf agent preview`.
+
+<img width="1910" height="917" alt="image" src="https://github.com/user-attachments/assets/56df8eb2-9c3a-4457-8335-4f89d996dc1d" />
+<img width="1010" height="474" alt="image" src="https://github.com/user-attachments/assets/a8560eb2-4fb6-4112-83a8-7194906c001c" />
+
 
 1. Select your `.agent` file and target org
 2. **Step 1** — Start a preview session (generates `SESSION_ID`)
@@ -331,6 +347,8 @@ sf agent preview end --bundle-name SkyBlueAirlinesServiceAgent --session-id "$SE
 
 Publish and activate your agent in the dev org.
 
+<img width="1914" height="919" alt="image" src="https://github.com/user-attachments/assets/0749f935-704d-43aa-a9e7-37ff4582658d" />
+
 ```bash
 sf agent publish authoring-bundle --api-name SkyBlueAirlinesServiceAgent --target-org my-dev-org
 sf agent activate --api-name SkyBlueAirlinesServiceAgent --target-org my-dev-org
@@ -348,6 +366,9 @@ The most comprehensive stage. Four tabs:
 
 Generate a `testSpec.yaml` for your agent. Three modes:
 
+<img width="1914" height="919" alt="image" src="https://github.com/user-attachments/assets/72e25c14-06e3-4b96-a3a6-dca5bd2fe426" />
+
+
 **Via CLI Command** — interactive `sf agent generate test-spec` (prompts for test cases in terminal).
 
 **Via AI** — select topics, set tests per topic, pick metrics, and let Claude generate structured test cases with `expectedTopic`, `expectedActions`, and `expectedOutcome`.
@@ -357,6 +378,8 @@ Generate a `testSpec.yaml` for your agent. Three modes:
 #### Run Test
 
 Configure and run formal tests:
+
+<img width="1914" height="919" alt="image" src="https://github.com/user-attachments/assets/2e70c85f-407a-4e99-97e0-ed783dc3c931" />
 
 - Select `.agent` file and `testSpec.yaml`
 - Choose target org (auto-detected or override)
@@ -368,9 +391,18 @@ Configure and run formal tests:
 
 Generate a prompt for the `sf-ai-agentforce-testing` Agent Skill — a full autonomous test-fix-deploy cycle powered by Claude Code. The AI agent runs tests, diagnoses failures, applies fixes, and retries up to 3 times.
 
+<img width="1914" height="919" alt="image" src="https://github.com/user-attachments/assets/9f3cb479-8e16-48f7-82e4-7eae17c75eb3" />
+
+
 #### Testing History
 
 Visual history of all test runs for each agent and test suite, stored in `formal-tests/`:
+
+<img width="1914" height="919" alt="image" src="https://github.com/user-attachments/assets/6f2d0d6b-5aa1-448b-9ce8-430311fe7069" />
+<img width="1914" height="919" alt="image" src="https://github.com/user-attachments/assets/94e60067-8565-4b63-afd2-16863b7e7b6b" />
+<img width="1914" height="919" alt="image" src="https://github.com/user-attachments/assets/43af85ff-1350-4a68-a96f-efc1bf476a59" />
+<img width="1914" height="919" alt="image" src="https://github.com/user-attachments/assets/d30caf23-2e82-467f-972b-b5479ae07c0f" />
+
 
 ```
 formal-tests/
