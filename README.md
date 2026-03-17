@@ -3,6 +3,9 @@
 > **Test-Driven Agent Development for Salesforce Agentforce**  
 > A local web app that guides you through the full 7-stage TDAD pipeline — from agent spec to production deployment — powered by Claude AI, connected directly to your Salesforce DX project.
 
+<img width="1550" height="900" alt="image" src="https://github.com/user-attachments/assets/77c38e75-427f-4e63-a5ed-48c497d1b928" />
+
+
 > **Version:** `v1.0.0-beta`
 
 ---
