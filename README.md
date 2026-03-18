@@ -106,73 +106,8 @@ sf --version          # should print @salesforce/cli/...
 ### 1. Create the Vite project
 
 ```bash
-cd ~/Projects
-npm create vite@latest agentkit -- --template react
-cd agentkit
 npm install
 ```
-
-### 2. Install server dependencies
-
-```bash
-npm install express cors
-```
-
-### 3. Place the AgentKit files
-
-Copy the files from this repo into your project:
-
-```
-agentkit/
-├── src/
-│   ├── App.jsx          ← agentforce-tdad.jsx  (rename it)
-│   └── main.jsx
-├── tdad-server.js       ← at project root
-├── vite.config.js       ← replace the default one
-├── .env                 ← create from .env.example (see below)
-└── .env.example         ← template (safe to commit)
-```
-
-### 4. Update `index.html`
-
-Add full-width styles inside the `<head>` tag of `index.html`:
-
-```html
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body, #root { width: 100%; min-height: 100vh; }
-</style>
-```
-
----
-
-## Configuration
-
-### `vite.config.js`
-
-Replace the entire file with:
-
-```js
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    proxy: {
-      "/ai":       "http://localhost:3001",
-      "/files":    "http://localhost:3001",
-      "/sf":       "http://localhost:3001",
-      "/status":   "http://localhost:3001",
-      "/history":  "http://localhost:3001",
-      "/preview":  "http://localhost:3001",
-    },
-  },
-});
-```
-
-> ⚠️ The proxy is required. Without it, the browser cannot reach the Express server.  
-> ⚠️ Always restart Vite after changing `vite.config.js` — it is only read at startup.
 
 ### `.env`
 
@@ -219,9 +154,7 @@ AgentKit requires **two terminals** running simultaneously.
 **Terminal 1 — Start the Express server:**
 
 ```bash
-node tdad-server.js
-# or with explicit project path:
-node tdad-server.js --project /path/to/sfdx-project
+npm run server
 ```
 
 Expected output:
