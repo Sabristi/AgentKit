@@ -67,8 +67,8 @@ console.log(`  Port       : ${PORT}`);
 console.log(`  API key    : ${ANTHROPIC_API_KEY ? "✓ set" : "✗ MISSING — add ANTHROPIC_API_KEY to .env"}`);
 
 if (!ANTHROPIC_API_KEY) {
-  console.error("\n  ✗ ANTHROPIC_API_KEY is required. Add it to .env and restart.\n");
-  process.exit(1);
+  console.warn("\n  ✗ ANTHROPIC_API_KEY is required. Add it to .env and restart.\n");
+  //process.exit(1);
 }
 if (!fs.existsSync(PROJECT_PATH)) {
   console.error(`\n  ✗ Project path not found: ${PROJECT_PATH}\n`);
